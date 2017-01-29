@@ -12,7 +12,7 @@
         "deploy:en": "surge --domain brazil.surge.sh ./dist",
         "test": "echo \"Error: no test specified\" && exit 1",
         "webpack": "webpack --config 'webpack.config.prod.babel.js'",
-        "webDevServer": "webpack-dev-server --progress --inline --colors --port 3000 --config 'webpack.config.dev.babel.js'"
+        "webDevServer": "webpack-dev-server --progress --inline --colors --host 0.0.0.0 --port 3000 --config 'webpack.config.dev.babel.js'"
     },
     "babel": {
         "presets": [

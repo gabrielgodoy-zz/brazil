@@ -10,11 +10,15 @@
 
       a
         color white
+        opacity: .5
         display: block
-        background: brazilGreen
+        font-family: 'garibaldi'
         width: 100%
         padding: 15px 10px
         margin-bottom: 10px
+
+        &.is-active
+          opacity: 1
 
   +below(medium)
     &-list
