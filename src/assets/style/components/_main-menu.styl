@@ -16,9 +16,15 @@
         width: 100%
         padding: 15px 10px
         margin-bottom: 10px
+        transition background .3s
+        background: transparent
 
         &.is-active
           opacity: 1
+
+      &:hover
+        a
+          background: rgba(white, .1)
 
   +below(medium)
     &-list

@@ -19,6 +19,7 @@ export default function setupBarba(callback = undefined) {
       if (callback) {
         callback();
       }
+      document.body.scrollTop = 0;
       this.done(); // Transition finished
     }
   });
