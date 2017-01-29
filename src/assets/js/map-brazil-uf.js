@@ -11,19 +11,24 @@ let margin = {
 // With responsivefy the height and width
 // will always follow his aspect ratio of 400 / 565
 
+let svg;
 let width = 800 - margin.left - margin.right;
-let height = 400 - margin.top - margin.bottom;
-
-let svg = d3.select('.chart-brazil-map')
-            .append('svg')
-            .attr('width', width + margin.left + margin.right)
-            .attr('height', height + margin.top + margin.bottom)
-            .attr('class', 'svg-container-map-brazil')
-            // .call(responsivefy)
-            .append('g')
-            .attr('transform', `translate(${margin.left}, ${margin.top})`);
+let height = 900 - margin.top - margin.bottom;
 
 export default function renderMap() {
+  if (!document.querySelector('.chart-brazil-map')) {
+    return;
+  }
+
+  svg = d3.select('.chart-brazil-map')
+          .append('svg')
+          .attr('width', width + margin.left + margin.right)
+          .attr('height', height + margin.top + margin.bottom)
+          .attr('class', 'svg-container-map-brazil')
+          .call(responsivefy)
+          .append('g')
+          .attr('transform', `translate(${margin.left}, ${margin.top})`);
+
   d3.queue()
     .defer(d3.json, '/src/assets/data/br-simplified.json')
     .await(ready);
@@ -46,8 +51,6 @@ let path = d3.geoPath()
              .projection(projection);
 
 function ready(error, data) {
-  console.log(data);
-
   /*
    topojson.feature converts RAW geodata into usable geo data
    always pass it data, then data.objects.__something__
