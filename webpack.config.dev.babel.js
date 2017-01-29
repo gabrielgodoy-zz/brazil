@@ -27,7 +27,7 @@ module.exports = {
       loader: 'file-loader'
     }, {
       test: /\.(eot|otf|woff|woff2|ttf|svg)$/,
-      loader: 'url-loader?limit=30000&name=[name].[ext]',
+      loader: 'url-loader?name=fonts/[name].[ext]',
     }, {
       test: /\.(png|jpg)$/,
       loader: 'file-loader?name=[name].[ext]',

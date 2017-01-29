@@ -11,6 +11,8 @@ body
   line-height 1
   min-height 100%
   background: almostWhite
+  -webkit-font-smoothing: antialiased
+  -moz-osx-font-smoothing: grayscale
 
   a,
   a:hover,
@@ -56,5 +58,6 @@ ol
   padding-bottom: 99999px
 
   +below(medium)
-    margin-bottom: auto
-    padding-bottom: 0
+    &:not(.main-content)
+      margin-bottom: auto
+      padding-bottom: 0
