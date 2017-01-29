@@ -18,7 +18,7 @@ module.exports = {
     }, {
       test: /\.styl$/,
       loader: ExtractTextPlugin.extract(
-        'style-loader', 'css-loader?modules!postcss-loader!stylus-loader'),
+        'style-loader', 'css-loader!postcss-loader!stylus-loader'),
     }, {
       test: /\.pug$/,
       loader: 'pug-loader?pretty'
