@@ -7,15 +7,15 @@ module.exports = {
   entry: ["babel-polyfill", "./src/assets/js/main.js"],
   module: {
     loaders: [{
-      test: /\.js$/,
-      exclude: /node_modules/,
-      loader: 'babel-loader',
-    }, {
       test: /\.css$/,
       loader: 'style-loader!css-loader?sourceMap'
     }, {
       test: /\.styl$/,
       loader: 'style-loader!css-loader?sourceMap!postcss-loader!stylus-loader',
+    }, {
+      test: /\.js$/,
+      exclude: /node_modules/,
+      loader: 'babel-loader',
     }, {
       test: /\.pug$/,
       loader: 'pug-loader?pretty'

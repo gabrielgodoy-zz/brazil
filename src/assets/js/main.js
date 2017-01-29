@@ -4,6 +4,8 @@ import setupBarba from './setupBarba';
 import renderMap from './map-brazil-uf';
 
 document.addEventListener('DOMContentLoaded', function() {
-  setupBarba();
-  renderMap();
+  setupBarba(renderMap);
+  setTimeout(() => {
+    renderMap();
+  }, 300);
 });

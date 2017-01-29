@@ -1,7 +1,6 @@
 import * as Barba from 'barba.js';
-import renderMap from './map-brazil-uf';
 
-export default function setupBarba() {
+export default function setupBarba(callback = undefined) {
   let transitionTime = 500;
   let FadeTransition = Barba.BaseTransition.extend({
     // Call start when transition begins
@@ -18,9 +17,10 @@ export default function setupBarba() {
       });
     },
     fadeIn: function() {
-      renderMap();
-      console.log('Render');
       this.newContainer.classList.toggle('fade-in');
+      if (callback) {
+        callback();
+      }
       this.done();
     }
   });

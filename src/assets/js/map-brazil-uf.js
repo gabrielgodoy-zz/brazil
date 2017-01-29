@@ -1,6 +1,7 @@
 import * as topojson from 'topojson';
 import * as d3 from 'd3';
 
+let mapData = require('./../data/br-simplified.json');
 let margin = {
   top: 30,
   right: 20,
@@ -11,12 +12,12 @@ let margin = {
 // With responsivefy the height and width
 // will always follow his aspect ratio of 400 / 565
 
-let svg;
 let width = 800 - margin.left - margin.right;
 let height = 900 - margin.top - margin.bottom;
+let svg;
 
 export default function renderMap() {
-  if (!document.querySelector('.chart-brazil-map')) {
+  if (!document.querySelector('#chart-brazil-map')) {
     return;
   }
 
@@ -29,9 +30,7 @@ export default function renderMap() {
           .append('g')
           .attr('transform', `translate(${margin.left}, ${margin.top})`);
 
-  d3.queue()
-    .defer(d3.json, '/src/assets/data/br-simplified.json')
-    .await(ready);
+  makeMap(mapData);
 }
 
 /*
@@ -50,13 +49,13 @@ let projection = d3.geoMercator()
 let path = d3.geoPath()
              .projection(projection);
 
-function ready(error, data) {
+function makeMap(data) {
   /*
    topojson.feature converts RAW geodata into usable geo data
-   always pass it data, then data.objects.__something__
+   Always pass it data, then data.objects.SOMETHING
    then get .features out of it
    */
-  // Extract countries from topojson
+  // Extract estados from topojson
   let ufs = topojson.feature(data, data.objects.estados).features;
 
   // Add a path for each country
@@ -65,7 +64,6 @@ function ready(error, data) {
      .data(ufs)
      .enter()
      .append('path')
-     .attr('class', 'uf')
      .attr('class', d => `${d.properties.nome} uf`)
      .attr('d', path);
 }
