@@ -1,0 +1,104 @@
+{
+  "links": {
+    "uteis": {
+      "title": "Links Gerais",
+      "links": [
+        {
+          "url": "http://www.politicos.org.br/",
+          "title": "Ranking dos políticos",
+          "description": "Ranking que compara políticos de todo o Brasil"
+        },
+        {
+          "url": "https://pt.wikipedia.org/wiki/Brasil",
+          "title": "Brasil no Wikipedia",
+          "description": ""
+        },
+        {
+          "url": "http://www.brasil.gov.br/",
+          "title": "Portal do Brasil",
+          "description": "Agregador de conteúdos dos ministérios e secretarias do governo federal, com notícias diárias e serviços para o cidadão."
+        },
+        {
+          "url": "http://www2.planalto.gov.br/",
+          "title": "Palácio do Planalto",
+          "description": "Acompanhe o que ocorre no Palácio do Planalto, onde fica o gabinete Presidencial do presidente"
+        },
+        {
+          "url": "http://www.congressonacional.leg.br/portal/",
+          "title": "Congresso Nacional",
+          "description": "O Congresso Nacional é o órgão constitucional que exerce, no âmbito federal, as funções do poder legislativo"
+        },
+        {
+          "url": "http://www12.senado.leg.br/hpsenado",
+          "title": "Senado Federal",
+          "description": ""
+        },
+        {
+          "url": "http://www2.camara.leg.br/",
+          "title": "Câmara dos Deputados",
+          "description": ""
+        },
+        {
+          "url": "http://portal.tcu.gov.br/inicio/",
+          "title": "Tribunal de Contas da União",
+          "description": "Informações sobre fiscalização das contas do governo consistindo de informações processuais, jurisprudência, notícias e legislação."
+        }
+      ]
+    },
+    "informacao": {
+      "title": "Informação",
+      "links": [
+        {
+          "url": "http://acessoainformacao.gov.br/",
+          "title": "Acesso à informação do Governo Federal",
+          "description": "A Lei de acesso à informação garante acesso a mais de 100 mil informações que eram reservadas ou secretas"
+        },
+        {
+          "url": "http://transparencia.gov.br/",
+          "title": "Portal da Transparência nos Recursos Públicos Federais",
+          "description": "Encontre dados detalhados sobre a execução orçamentária e financeiro do governo federal"
+        },
+        {
+          "url": "http://dados.gov.br/",
+          "title": "Portal Brasileiro de Dados Abertos",
+          "description": "Ponto central de acesso pelo cidadão ao dados públicos de governo"
+        },
+        {
+          "url": "http://www.inde.gov.br/",
+          "title": "Infraestrutura Nacional de Dados Espaciais",
+          "description": "Disponibilização, compartilhamento e acesso a dados e informações geoespaciais, bem como aos serviços relacionados"
+        },
+        {
+          "url": "http://www.aplicativos.gov.br/",
+          "title": "Guia de aplicativos do Governo Federal",
+          "description": "Aplicativos oficiais construídos por organizações públicas"
+        },
+        {
+          "url": "http://vispublica.gov.br/vispublica/",
+          "title": "Portal VisPublica",
+          "description": "Modelo de visualização de dados públicos"
+        }
+      ]
+    },
+    "legislacao": {
+      "title": "Legislação",
+      "links": [
+        {
+          "url": "http://www4.planalto.gov.br/legislacao",
+          "title": "Portal da Legislação",
+          "description": "Reuni todo o material legislativo do Brasil: a Constituição, as Leis Federais, Decretos, Estatutos, dentre outros"
+        }
+      ]
+    },
+    "servicos": {
+      "title": "Serviços",
+      "links": [
+        {
+          "url": "http://servicos.gov.br/",
+          "title": "Portal de Serviços do Governo Federal",
+          "description": "Canal de comunicação centralizado que apresenta os serviços prestados pelo governo."
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,21 @@
+block variables
+  - var linksSection = require("./data/links.json")
+
+html
+  head
+    meta(charset='UTF-8')
+    title Brasil
+    link(rel="icon" href="favicon.png")
+    link(href="https://fonts.googleapis.com/css?family=Open+Sans:300,600" rel="stylesheet")
+    block scripts
+
+body
+  .container-fluid
+    .row.match-my-cols
+      .col-md-2.sidebar-left.no-padding
+        include partials/_sidebar-left
+      main#barba-wrapper.col-md-7.col-md-offset-2.main-content
+        .barba-container
+          block content
+      .col-md-3.sidebar-right
+        include partials/_sidebar-right

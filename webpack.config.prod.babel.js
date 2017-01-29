@@ -1,6 +1,6 @@
 import autoprefixer from 'autoprefixer';
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 let path = require('path');
 
@@ -22,6 +22,9 @@ module.exports = {
     }, {
       test: /\.pug$/,
       loader: 'pug-loader?pretty'
+    }, {
+      test: /\.json$/,
+      loader: 'json-loader'
     }, {
       test: /\.html$/,
       loader: 'file-loader'
@@ -59,11 +62,20 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: './src/index.pug',
+      template: './src/pages/index.pug',
     }),
     new HtmlWebpackPlugin({
       filename: 'links.html',
       template: './src/pages/links.pug',
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'sistema-politico.html',
+      template: './src/pages/sistema-politico.pug',
+    }),
+    new webpack.ProvidePlugin({
+      jQuery: 'jquery',
+      $: 'jquery',
+      jquery: 'jquery'
     })
   ],
   resolve: {

@@ -20,6 +20,9 @@ module.exports = {
       test: /\.pug$/,
       loader: 'pug-loader?pretty'
     }, {
+      test: /\.json$/,
+      loader: 'json-loader'
+    }, {
       test: /\.html$/,
       loader: 'file-loader'
     }, {
@@ -44,11 +47,20 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       filename: 'index.html',
-      template: './src/index.pug',
+      template: './src/pages/index.pug',
     }),
     new HtmlWebpackPlugin({
       filename: 'links.html',
       template: './src/pages/links.pug',
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'sistema-politico.html',
+      template: './src/pages/sistema-politico.pug',
+    }),
+    new webpack.ProvidePlugin({
+      jQuery: 'jquery',
+      $: 'jquery',
+      jquery: 'jquery'
     })
   ],
   resolve: {
