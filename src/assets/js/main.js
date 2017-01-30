@@ -1,7 +1,7 @@
 import 'bootstrap/dist/js/bootstrap.min';
 import '../style/main.styl';
-import setupBarba from './setupBarba';
-import renderMap from './map-brazil-uf';
+import setupBarba from './routes/setupBarba';
+import renderMap from './map-brazil/initMap';
 
 document.addEventListener('DOMContentLoaded', function() {
   setupBarba(renderMap);

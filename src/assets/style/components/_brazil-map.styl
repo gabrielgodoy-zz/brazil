@@ -1,4 +1,13 @@
 .chart-brazil-map
+  .header-map
+    padding: 20px
+    border-bottom: 1px solid almostWhite
+    display: flex
+    justify-content space-between
+
+    .page-title
+      margin-top: 0
+
   .svg-container-map-brazil
     .uf
       cursor: pointer
@@ -7,6 +16,9 @@
       stroke-width 1
       opacity: 1
       transition opacity .3s
+
+      &:hover
+        opacity: .8
 
       &.selected
         opacity: .8
@@ -29,27 +41,15 @@
     .state-initials
       fill black
 
-    #tooltip
-      pointer-events: none
-      border-radius 4px
-
-      .tooltip-box
-        fill: rgba(0, 0, 0, .5)
-
-      .info
-        fill white
-        font-size 1.8rem
-
     .uf-initial-text
       pointer-events: none
       font-size 1.4rem
-
 
       &.state-df
         transform: translate(0, -9px)
 
       &.state-pb
-        transform: translate(8px, 7px)
+        transform: translate(9px, 11px)
 
       &.state-al
         transform: translate(3px, 8px)
@@ -61,10 +61,10 @@
         transform: translate(0, 15px)
 
       &.state-es
-        transform: translate(3px, 0)
+        transform: translate(5px, 0)
 
       &.state-rj
-        transform: translate(0, 7px)
+        transform: translate(0, 9px)
 
       &.state-se
         transform: translate(2px, 2px)
