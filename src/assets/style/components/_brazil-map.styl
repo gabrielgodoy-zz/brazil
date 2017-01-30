@@ -1,6 +1,73 @@
 .chart-brazil-map
   .svg-container-map-brazil
     .uf
+      cursor: pointer
       fill none
-      stroke brazilGreen
+      stroke white
       stroke-width 1
+      opacity: 1
+      transition opacity .3s
+
+      &.selected
+        opacity: .8
+
+      &.norte
+        fill flatGreen
+
+      &.nordeste
+        fill flatRed
+
+      &.centro-oeste
+        fill flatBlue
+
+      &.sudeste
+        fill flatOrange
+
+      &.sul
+        fill flatYellow
+
+    .state-initials
+      fill black
+
+    #tooltip
+      pointer-events: none
+      border-radius 4px
+
+      .tooltip-box
+        fill: rgba(0, 0, 0, .5)
+
+      .info
+        fill white
+        font-size 1.8rem
+
+    .uf-initial-text
+      pointer-events: none
+      font-size 1.4rem
+
+
+      &.state-df
+        transform: translate(0, -9px)
+
+      &.state-pb
+        transform: translate(8px, 7px)
+
+      &.state-al
+        transform: translate(3px, 8px)
+
+      &.state-pe
+        transform: translate(1px, 4px)
+
+      &.state-pi
+        transform: translate(0, 15px)
+
+      &.state-es
+        transform: translate(3px, 0)
+
+      &.state-rj
+        transform: translate(0, 7px)
+
+      &.state-se
+        transform: translate(2px, 2px)
+
+      &.state-ac
+        transform: translate(0, -4px)

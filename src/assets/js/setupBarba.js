@@ -28,15 +28,21 @@ export default function setupBarba(callback = undefined) {
   Barba.Dispatcher.on('newPageReady', currentStatus => {
     // get path of current page
     const link = currentStatus.url.split(window.location.origin)[1].substring(1);
+
     const navigation = document.querySelector('.main-menu');
     const navigationLinks = navigation.querySelectorAll('.main-menu-list-item a');
-    const navigationLinkIsActive = navigation.querySelector(`[href="${link}"]`);
+    document.querySelector('.sidebar-right-side').innerHTML = '';
+    if (link.length) {
+      const navigationLinkIsActive = navigation.querySelector(`[href="${link}"]`);
 
-    // remove CSS class 'is-active' from all .navigation__links
-    navigationLinks.forEach(navigationLink => navigationLink.classList.remove('is-active'));
+      // remove CSS class 'is-active' from all .navigation__links
+      navigationLinks.forEach(navigationLink => navigationLink.classList.remove('is-active'));
 
-    // add CSS class to current .navigation__link
-    navigationLinkIsActive.classList.add('is-active');
+      // add CSS class to current .navigation__link
+      navigationLinkIsActive.classList.add('is-active');
+    } else {
+      navigationLinks[0].classList.add('is-active');
+    }
   });
 
   Barba.Pjax.start();
