@@ -24,26 +24,23 @@ export default function setupBarba(callback = undefined) {
     }
   });
   Barba.Pjax.getTransition = () => FadeTransition;
-
   Barba.Dispatcher.on('newPageReady', currentStatus => {
-    // get path of current page
     const link = currentStatus.url.split(window.location.origin)[1].substring(1);
-
+    const body = document.querySelector('body');
     const navigation = document.querySelector('.main-menu');
     const navigationLinks = navigation.querySelectorAll('.main-menu-list-item a');
+    body.className = '';
     document.querySelector('.sidebar-right-side').innerHTML = '';
     if (link.length) {
       const navigationLinkIsActive = navigation.querySelector(`[href="${link}"]`);
-
-      // remove CSS class 'is-active' from all .navigation__links
+      const pageName = link.replace('.html', '');
+      body.classList.add(`page-${pageName}`);
       navigationLinks.forEach(navigationLink => navigationLink.classList.remove('is-active'));
-
-      // add CSS class to current .navigation__link
       navigationLinkIsActive.classList.add('is-active');
     } else {
+      body.classList.add('page-index');
       navigationLinks[0].classList.add('is-active');
     }
   });
-
   Barba.Pjax.start();
 }
