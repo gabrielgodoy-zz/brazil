@@ -2,20 +2,21 @@ import * as d3 from 'd3';
 import * as topojson from 'topojson';
 import State from './states';
 import {setupMainSvg, setupSvgGroup} from './mainSvg';
-import {createZoomBehaviour, mapDimensionConfig, pathFromProjection} from './mapConfig';
+import {createZoomBehaviour, dimensionConfig, pathFromProjection} from './mapConfig';
+import {createLegend} from './legend';
 
-let config = mapDimensionConfig;
+let config = dimensionConfig;
 let svg;
 let svgGroup;
 let zoomListener = createZoomBehaviour();
 
-export default function renderMap() {
+export default function createMap() {
   let noMapContainer = !document.querySelector('#chart-brazil-map');
   if (noMapContainer) {
     return;
   }
   svg = setupMainSvg(config, zoomListener);
-  svgGroup = setupSvgGroup(svg, config);
+  svgGroup = setupSvgGroup(svg);
   let mapData = require('./../../data/br-simplified.json');
   makeMap(mapData);
   d3.select('.bt-reset-map').on('click', resetMap);
@@ -33,8 +34,10 @@ function makeMap(data) {
   let state = State.createState(ufs, svgGroup);
   State.addEventListeners(state);
 
+  createLegend(ufs);
+
   let stateInPath = pathFromProjection(config);
-  let labelsData = State.generateLabelsData(ufs, stateInPath);
-  State.addStateLabels(svgGroup, labelsData);
+  let labelsData = State.createLabelsData(ufs, stateInPath);
+  State.createLabels(svgGroup, labelsData);
   state.append('path').attr('d', stateInPath);
 }

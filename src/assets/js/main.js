@@ -1,12 +1,12 @@
 import 'bootstrap/dist/js/bootstrap.min';
 import '../style/main.styl';
 import setupBarba from './routes/setupBarba';
-import renderMap from './map-brazil/initMap';
+import createMap from './map-brazil/initMap';
 
 document.addEventListener('DOMContentLoaded', function() {
-  setupBarba(renderMap);
+  setupBarba(createMap);
   setTimeout(() => {
-    renderMap();
+    createMap();
   }, 300);
   preventClickIfHrefIsCurrentPage();
 });

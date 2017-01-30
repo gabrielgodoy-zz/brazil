@@ -9,16 +9,15 @@ import {responsivefy} from '../helpers';
 export function setupMainSvg(config, zoomListener) {
   return d3.select('.chart-brazil-map')
            .append('svg')
-           .attr('width', config.width + config.margin.left + config.margin.right)
-           .attr('height', config.height + config.margin.top + config.margin.bottom)
+           .attr('width', config.width)
+           .attr('height', config.height)
            .attr('class', 'svg-container-map-brazil')
            .call(responsivefy)
            .call(zoomListener)
            .on("wheel.zoom", null);
 }
 
-export function setupSvgGroup(svg, config) {
+export function setupSvgGroup(svg) {
   return svg.append('g')
-            .attr('class', 'innerGroup')
-            .attr('transform', `translate(${config.margin.left}, ${config.margin.top})`);
+            .attr('class', 'innerGroup');
 }

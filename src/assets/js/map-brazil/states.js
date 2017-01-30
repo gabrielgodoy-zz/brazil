@@ -41,7 +41,7 @@ let State = (() => {
     }
   }
 
-  function generateLabelsData(ufsData, path) {
+  function createLabelsData(ufsData, path) {
     return ufsData.map(d => {
       return {
         x: path.centroid(d)[0],
@@ -81,7 +81,7 @@ let State = (() => {
     `
   }
 
-  function addStateLabels(svgGroup, labelsData) {
+  function createLabels(svgGroup, labelsData) {
     let ufLabels = svgGroup.selectAll('.uf-initial')
                            .data(labelsData)
                            .enter().append('g')
@@ -105,7 +105,7 @@ let State = (() => {
     }
   }
 
-  return {createState, addEventListeners, generateLabelsData, addStateLabels}
+  return {createState, addEventListeners, createLabelsData, createLabels}
 })();
 
 export default State;
