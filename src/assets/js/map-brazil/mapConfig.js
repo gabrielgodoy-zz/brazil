@@ -20,7 +20,7 @@ export function pathFromProjection(config) {
    and zoom in a certain amount (scale)
    */
   let projection = d3.geoMercator()
-                     .translate([config.width + 670, 120])
+                     .translate([config.width + 640, 120])
                      .scale(1100);
 
   // Create a path (geoPath) using the projection

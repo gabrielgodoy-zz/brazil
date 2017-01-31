@@ -66,7 +66,7 @@ export default function createContent(svgGroup, data, scales) {
                          .attr('class', 'layer-dot');
 
   layerDot.append('circle')
-          .attr('r', 3)
+          .attr('r', 4)
           .attr('cx', d => scales.xScale(d.year))
           .attr('cy', d => scales.yScale(d.population));
 
