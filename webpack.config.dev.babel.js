@@ -20,6 +20,9 @@ module.exports = {
       test: /\.pug$/,
       loader: 'pug-loader?pretty'
     }, {
+      test: /\.csv$/,
+      loader: 'dsv-loader?delimiter=;'
+    }, {
       test: /\.json$/,
       loader: 'json-loader'
     }, {
@@ -52,6 +55,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'links.html',
       template: './src/pages/links.pug',
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'graficos.html',
+      template: './src/pages/graficos.pug',
     }),
     new HtmlWebpackPlugin({
       filename: 'sistema-politico.html',

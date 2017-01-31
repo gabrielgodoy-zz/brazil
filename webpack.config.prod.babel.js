@@ -72,6 +72,10 @@ module.exports = {
       filename: 'sistema-politico.html',
       template: './src/pages/sistema-politico.pug',
     }),
+    new HtmlWebpackPlugin({
+      filename: 'graficos.html',
+      template: './src/pages/graficos.pug',
+    }),
     new webpack.ProvidePlugin({
       jQuery: 'jquery',
       $: 'jquery',

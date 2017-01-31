@@ -64,6 +64,11 @@
           "description": "Ponto central de acesso pelo cidadão ao dados públicos de governo"
         },
         {
+          "url": "http://pgi.gov.br/pgi/indicador/pesquisar",
+          "title": "Plataforma de indicadores em desenvolvimento",
+          "description": "Repositório de compartilhamento de indicadores de políticas públicas"
+        },
+        {
           "url": "http://www.inde.gov.br/",
           "title": "Infraestrutura Nacional de Dados Espaciais",
           "description": "Disponibilização, compartilhamento e acesso a dados e informações geoespaciais, bem como aos serviços relacionados"

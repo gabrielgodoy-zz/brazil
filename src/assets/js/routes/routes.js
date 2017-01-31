@@ -14,7 +14,7 @@ function setMenuActive(page) {
   const navigationLinks = navigation.querySelectorAll('.main-menu-list-item a');
   if (page.length) {
     const navigationLinkIsActive = navigation.querySelector(`[href="${page}"]`);
-    navigationLinks.forEach(navigationLink => navigationLink.classList.remove('is-active'));
+    [].forEach.call(navigationLinks, navigationLink => navigationLink.classList.remove('is-active'));
     navigationLinkIsActive.classList.add('is-active');
   } else {
     navigationLinks[0].classList.add('is-active');

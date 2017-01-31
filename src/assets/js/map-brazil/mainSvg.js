@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import {responsivefy} from '../helpers';
+import {responsivefy} from './../helpers';
 
 /**
  *

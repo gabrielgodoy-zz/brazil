@@ -15,9 +15,8 @@
         font-family: 'garibaldi'
         font-weight 300
         width: 100%
-        padding: 15px 20px
+        padding: 10px 20px
         font-size 2rem
-        margin-bottom: 10px
         transition background .3s
         background: transparent
 
@@ -28,11 +27,16 @@
         a
           background: rgba(white, .1)
 
+        +below(medium)
+          a
+            background: brazilGreen
+
   +below(medium)
     &-list
       li
         display: inline-block
         width: auto
-        
+
         a
+          padding: 5px 6px
           background: brazilGreen
