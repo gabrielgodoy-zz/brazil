@@ -23,6 +23,9 @@ module.exports = {
       test: /\.pug$/,
       loader: 'pug-loader?pretty'
     }, {
+      test: /\.csv$/,
+      loader: 'dsv-loader?delimiter=;'
+    }, {
       test: /\.json$/,
       loader: 'json-loader'
     }, {
