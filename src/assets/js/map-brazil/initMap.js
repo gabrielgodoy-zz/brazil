@@ -26,7 +26,7 @@ function resetMap() {
   d3.select('.svg-container-map-brazil')
     .transition()
     .duration(750)
-    .call(zoomListener.transform, d3.zoomIdentity.translate(30, 30).scale(1));
+    .call(zoomListener.transform, d3.zoomIdentity.translate(0, 0).scale(1));
 }
 
 function makeMap(data) {
