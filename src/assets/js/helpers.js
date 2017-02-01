@@ -2,15 +2,15 @@ import * as d3 from 'd3';
 
 export function addDots(numberToFormat) {
   numberToFormat += '';
-  let x = numberToFormat.split('.');
-  let x1 = x[0];
-  let x2 = x.length > 1 ? '.' + x[1] : '';
-  let rgx = /(\d+)(\d{3})/;
+  let numberArray = numberToFormat.split('.');
+  let firstNumberInArray = numberArray[0];
+  let secondNumberConcat = numberArray.length > 1 ? `.${numberArray[1]}` : '';
+  let isThreeDigits = /(\d+)(\d{3})/;
 
-  while (rgx.test(x1)) {
-    x1 = x1.replace(rgx, '$1' + '.' + '$2');
+  while (isThreeDigits.test(firstNumberInArray)) {
+    firstNumberInArray = firstNumberInArray.replace(isThreeDigits, `$1.$2`);
   }
-  return x1 + x2;
+  return firstNumberInArray + secondNumberConcat;
 }
 
 export function svgShadow(svg, {
