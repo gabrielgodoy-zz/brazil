@@ -1,8 +1,8 @@
 import * as d3 from 'd3';
 
 export function addDots(numberToFormat) {
-  numberToFormat += '';
-  let numberArray = numberToFormat.split('.');
+  let stringNumber = String(numberToFormat);
+  let numberArray = stringNumber.split('.');
   let firstNumberInArray = numberArray[0];
   let secondNumberConcat = numberArray.length > 1 ? `.${numberArray[1]}` : '';
   let isThreeDigits = /(\d+)(\d{3})/;
@@ -20,22 +20,15 @@ export function svgShadow(svg, {
   feOffsetDY = .85
 } = {}) {
   let defs = svg.append("defs");
-
-  // create filter with id #drop-shadow
-  // height=130% so that the shadow is not clipped
   let filter = defs.append("filter")
                    .attr("id", "drop-shadow")
                    .attr("height", "130%");
 
-  // SourceAlpha refers to opacity of graphic that this filter will be applied to
-  // convolve that with a Gaussian with standard deviation 3 and store result in blur
   filter.append("feGaussianBlur")
         .attr("in", "SourceAlpha")
         .attr("stdDeviation", stdDeviation)
         .attr("result", "blur");
 
-  // translate output of Gaussian blur to the right and downwards with 2px
-  // store result in offsetBlur
   filter.append("feOffset")
         .attr("in", "blur")
         .attr("dx", feOffsetDX)
@@ -53,8 +46,6 @@ export function svgShadow(svg, {
              .attr("operator", "in")
              .attr("result", "offsetBlur");
 
-  // overlay original SourceGraphic over translated blurred opacity by using
-  // feMerge filter. Order of specifying inputs is important!
   let feMerge = filter.append("feMerge");
   feMerge.append("feMergeNode")
          .attr("in", "offsetBlur");
