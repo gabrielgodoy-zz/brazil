@@ -13,7 +13,12 @@ export function addDots(numberToFormat) {
   return x1 + x2;
 }
 
-export function svgShadow(svg, config) {
+export function svgShadow(svg, {
+  stdDeviation = 1,
+  shadowColor = '#666',
+  feOffsetDX = .85,
+  feOffsetDY = .85
+} = {}) {
   let defs = svg.append("defs");
 
   // create filter with id #drop-shadow
@@ -26,19 +31,19 @@ export function svgShadow(svg, config) {
   // convolve that with a Gaussian with standard deviation 3 and store result in blur
   filter.append("feGaussianBlur")
         .attr("in", "SourceAlpha")
-        .attr("stdDeviation", config.stdDeviation)
+        .attr("stdDeviation", stdDeviation)
         .attr("result", "blur");
 
   // translate output of Gaussian blur to the right and downwards with 2px
   // store result in offsetBlur
   filter.append("feOffset")
         .attr("in", "blur")
-        .attr("dx", config.feOffsetDX)
-        .attr("dy", config.feOffsetDY)
+        .attr("dx", feOffsetDX)
+        .attr("dy", feOffsetDY)
         .attr("result", "offsetBlur");
 
   filter.append("feFlood")
-        .attr("flood-color", config.shadowColor)
+        .attr("flood-color", shadowColor)
         .attr("flood-opacity", .5)
         .attr("result", "offsetColor");
 
@@ -73,13 +78,6 @@ export function responsivefy(svg) {
         svg.attr('width', targetWidth);
         svg.attr('height', Math.round(targetWidth / aspect));
       }
-
-      if (window.outerWidth > 992) {
-        console.log('Desktop');
-      } else {
-        console.log('Mobile');
-      }
-
     }
   }
 }

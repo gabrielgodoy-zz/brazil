@@ -1,5 +1,5 @@
 import * as d3 from 'd3';
-import {config} from './config';
+import {config} from '../config';
 
 export default function createScales(svgGroup, data) {
   let xScale = d3.scaleTime()
@@ -16,7 +16,7 @@ export default function createScales(svgGroup, data) {
 
   let yScale = d3.scaleLinear()
                  .domain([
-                   d3.min(data, d => d3.min(d.years, yearObj => yearObj.population)),
+                   0,
                    d3.max(data, d => d3.max(d.years, yearObj => yearObj.population)),
                  ])
                  .range([config.height, 0]);

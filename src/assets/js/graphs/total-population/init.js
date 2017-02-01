@@ -1,18 +1,28 @@
 import createSvg from './svgContainer';
-import createScales from './axes';
+import createScales from './content/axes';
 import getData from './data';
-import createContent from './content';
+import renderContent from './content/content';
 
 let graphPopulation = (() => {
   function init() {
     let svgGroup = createSvg();
     let data = getData();
-    let dataTotalPopulation = data.slice(0, 1);
-    let scales = createScales(svgGroup, dataTotalPopulation);
-    createContent(svgGroup, dataTotalPopulation, scales);
+    let scales = createScales(svgGroup, data.slice(0, 1));
+    renderContent(svgGroup, data.slice(0, 1), scales);
+    createEventListeners(svgGroup, data, scales, '.update-graph-buttons .update-graph');
   }
 
   return {init};
 })();
+
+function createEventListeners(svgGroup, data, scales, selector) {
+  let buttons = document.querySelectorAll(selector);
+  [].forEach.call(buttons, function(button, i, array) {
+    button.addEventListener('click', function() {
+      let buttonIndex = [].indexOf.call(array, this);
+      renderContent(svgGroup, data.slice(buttonIndex, buttonIndex + 1), scales);
+    });
+  });
+}
 
 export default graphPopulation;
