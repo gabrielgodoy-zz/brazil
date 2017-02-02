@@ -19,7 +19,12 @@ function createEventListeners(svgGroup, data, scales, selector) {
   let buttons = document.querySelectorAll(selector);
   [].forEach.call(buttons, function(button, i, array) {
     button.addEventListener('click', function() {
+      [].forEach.call(buttons, function(button, i, array) {
+        button.classList.remove('active');
+      });
+      this.classList.add('active');
       let buttonIndex = [].indexOf.call(array, this);
+      scales.updateScales(data.slice(buttonIndex, buttonIndex + 1));
       renderContent(svgGroup, data.slice(buttonIndex, buttonIndex + 1), scales);
     });
   });

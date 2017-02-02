@@ -1,4 +1,4 @@
-import * as d3 from 'd3';
+import {reusableTransition} from '../config';
 import {svgShadow} from '../../../helpers';
 import createLayerLine from './layerLine';
 import createLayerDot from './layerDot';
@@ -10,9 +10,6 @@ export default function renderContent(svgGroup, data, scales) {
   svgShadow(svgGroup);
 
   render = function(data) {
-    let defaultDuration = 500;
-    let reusableTransition = d3.transition().duration(defaultDuration);
-
     createLayerLine(svgGroup, data, scales, reusableTransition);
     createLayerGuideline(svgGroup, data, scales, reusableTransition);
     createLayerDot(svgGroup, data, scales, reusableTransition);
