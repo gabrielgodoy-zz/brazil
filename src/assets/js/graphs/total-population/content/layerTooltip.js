@@ -1,19 +1,17 @@
 import {addDots} from '../../../helpers';
 
-export default function createLayerTooltip(svgGroup, data, scales, reusableTransition) {
+export default function createLayerTooltip(svgGroup, data, scales) {
 // Data Join
   let layerTooltip = svgGroup.selectAll('.layer-tooltip')
                              .data(data[0].years);
 
   // 1 EXIT selection | When data leaves
   layerTooltip.exit()
-              .transition(reusableTransition)
               .remove();
 
   // 2 UPDATE selection | Existing elements being updated
-  layerTooltip.transition(reusableTransition)
-              .attr('transform', d => `translate(${scales.xScale(d.year)}, \
-                                                   ${scales.yScale(d.population) - 35})`)
+  layerTooltip.attr('transform', d => `translate(${scales.xScale(d.year)}, \
+                                                 ${scales.yScale(d.population) - 35})`)
               .select('.layer-tooltip-population')
               .text(d => addDots(d.population));
 
